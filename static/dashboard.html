@@ -2,51 +2,241 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - RBAC Demo</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Authentication & RBAC Demo</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
 </head>
 
 <body onload="initializeDashboard()">
 
-    <div class="container">
-        <div class="card">
-            <h1>RBAC Demo Portal</h1>
-            <p class="mb-0"><strong id="welcome"></strong></p>
-            <p class="text-muted mb-0" id="role"></p>
+    <header class="topbar">
+
+        <div>
+
+            <h1>Authentication & RBAC Demo</h1>
+
+            <p class="subtitle">
+
+                Secure access using JWT Authentication and Role-Based Access Control
+
+            </p>
+
         </div>
 
-        <div class="card">
-            <h2>Your Permissions</h2>
-            <ul id="permissions"></ul>
-        </div>
+        <button
+            class="secondary-btn"
+            onclick="logout()">
 
-        <div class="card">
-            <h2>Actions</h2>
-            <div class="actions">
-                <button onclick="getProfile()">My Profile</button>
-                <button onclick="getUsers()">View Users</button>
-                <button onclick="getAnnouncements()">View Announcements</button>
-                <button onclick="logout()">Logout</button>
+            Logout
+
+        </button>
+
+    </header>
+
+    <main class="container">
+
+        <aside class="sidebar">
+
+            <section class="card">
+
+                <div class="profile">
+
+                    <div
+                        id="avatar"
+                        class="avatar">
+
+                        U
+
+                    </div>
+
+                    <div>
+
+                        <h2
+                            id="welcome">
+
+                            User
+
+                        </h2>
+
+                        <span
+                            id="role"
+                            class="role-pill">
+
+                            Role
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="card">
+
+                <h3>
+
+                    Permissions
+
+                </h3>
+
+                <div
+                    id="permissions"
+                    class="permissions">
+
+                </div>
+
+            </section>
+
+            <section class="card">
+
+                <h3>
+
+                    Actions
+
+                </h3>
+
+                <div class="actions">
+
+                    <button
+                        onclick="getProfile()">
+
+                        My Profile
+
+                    </button>
+
+                    <button
+                        onclick="getUsers()">
+
+                        Users
+
+                    </button>
+
+                    <button
+                        onclick="getAnnouncements()">
+
+                        Announcements
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <section
+                id="announcementCard"
+                class="card">
+
+                <h3>
+
+                    Create Announcement
+
+                </h3>
+
+                <input
+                    id="announcementTitle"
+                    placeholder="Title">
+
+                <textarea
+                    id="announcementContent"
+                    placeholder="Announcement content">
+
+                </textarea>
+
+                <button
+                    class="primary-btn"
+                    onclick="createAnnouncement()">
+
+                    Publish
+
+                </button>
+
+            </section>
+
+        </aside>
+
+        <section class="content">
+
+            <div class="card">
+
+                <div class="content-header">
+
+                    <div>
+
+                        <h2>
+
+                            Resource Viewer
+
+                        </h2>
+
+                        <p>
+
+                            Displays data returned by secured APIs.
+
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="statusBadge"
+                        class="status">
+
+                        Ready
+
+                    </span>
+
+                </div>
+
+                <div
+                    id="responseArea"
+                    class="response-area">
+
+                    <div class="empty-state">
+
+                        <h3>
+
+                            No Resource Selected
+
+                        </h3>
+
+                        <p>
+
+                            Choose an action from the left panel to
+                            retrieve protected resources.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
 
-        <div class="card">
-            <h2>Create Announcement</h2>
-            <input id="announcementTitle" placeholder="Title">
-            <textarea id="announcementContent" placeholder="Content"></textarea>
-            <button onclick="createAnnouncement()">Create Announcement</button>
-        </div>
+        </section>
 
-        <div class="card">
-            <h2>API Response</h2>
-            <p><strong>Method:</strong> <span id="method">-</span></p>
-            <p><strong>Endpoint:</strong> <span id="endpoint">-</span></p>
-            <p class="mb-0"><strong>Status:</strong> <span id="status">-</span></p>
-            <pre id="output" class="mt-16">Click any action.</pre>
-        </div>
-    </div>
+    </main>
+
+    <footer>
+
+        Authentication & Authorization Lab Demonstration
+
+        <span>
+
+            FastAPI · SQLite · JWT · RBAC
+
+        </span>
+
+    </footer>
 
     <script src="app.js"></script>
 
