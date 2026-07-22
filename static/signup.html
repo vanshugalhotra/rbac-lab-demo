@@ -2,40 +2,142 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - RBAC Demo</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | Authentication & RBAC Demo</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+<body class="auth-page">
 
-    <div class="container">
-        <div class="card">
-            <h1>RBAC Authentication</h1>
-            <h3>Create a new account</h3>
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="auth-header">
+
+                <h1>Create Account</h1>
+
+                <p>
+
+                    Register a new user to demonstrate authentication and authorization.
+
+                </p>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Username
+
+                </label>
+
+                <input
+                    id="username"
+                    type="text"
+                    placeholder="Enter username">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Email
+
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter email">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Password
+
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter password">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Role
+
+                </label>
+
+                <select id="role">
+
+                    <option value="" disabled selected>
+
+                        Select Role
+
+                    </option>
+
+                    <option value="student">
+
+                        Student
+
+                    </option>
+
+                    <option value="staff">
+
+                        Staff
+
+                    </option>
+
+                    <option value="admin">
+
+                        Admin
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button
+                class="primary-btn full-width"
+                onclick="signup()">
+
+                Create Account
+
+            </button>
+
+            <div class="auth-footer">
+
+                Already have an account?
+
+                <a href="login.html">
+
+                    Sign In
+
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h2>Sign Up</h2>
-
-            <input type="text" id="username" placeholder="Username">
-            <input type="email" id="email" placeholder="Email">
-            <input type="password" id="password" placeholder="Password">
-
-            <select id="role">
-                <option value="" disabled selected>Select Role</option>
-                <option value="student">Student</option>
-                <option value="staff">Staff</option>
-                <option value="admin">Admin</option>
-            </select>
-
-            <button onclick="signup()">Create Account</button>
-
-            <p class="text-muted mt-16 mb-0">
-                Already have an account? <a href="login.html">Login</a>
-            </p>
-        </div>
     </div>
 
     <script src="app.js"></script>
