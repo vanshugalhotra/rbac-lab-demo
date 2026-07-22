@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RBAC Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initializeDashboard()">
+
+    <div class="container">
+        <div class="card">
+            <h1>RBAC Demo Portal</h1>
+            <p class="mb-0"><strong id="welcome"></strong></p>
+            <p class="text-muted mb-0" id="role"></p>
+        </div>
+
+        <div class="card">
+            <h2>Your Permissions</h2>
+            <ul id="permissions"></ul>
+        </div>
+
+        <div class="card">
+            <h2>Actions</h2>
+            <div class="actions">
+                <button onclick="getProfile()">My Profile</button>
+                <button onclick="getUsers()">View Users</button>
+                <button onclick="getAnnouncements()">View Announcements</button>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Create Announcement</h2>
+            <input id="announcementTitle" placeholder="Title">
+            <textarea id="announcementContent" placeholder="Content"></textarea>
+            <button onclick="createAnnouncement()">Create Announcement</button>
+        </div>
+
+        <div class="card">
+            <h2>API Response</h2>
+            <p><strong>Method:</strong> <span id="method">-</span></p>
+            <p><strong>Endpoint:</strong> <span id="endpoint">-</span></p>
+            <p class="mb-0"><strong>Status:</strong> <span id="status">-</span></p>
+            <pre id="output" class="mt-16">Click any action.</pre>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
